@@ -1,0 +1,13 @@
+// src/types/index.ts
+export interface User {
+  username: string;
+  role: 'Gestor' | 'Servidor' | 'Visitante';
+  avatar: string;
+}
+
+export interface Process {
+  id: string;
+  solicitante: string;
+  status: 'Aprovado' | 'Em Análise' | 'Pendente' | 'Rejeitado';
+  dataSubmissao: string;
+}

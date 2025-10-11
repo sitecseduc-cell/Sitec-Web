@@ -1,18 +1,24 @@
-# Dependências
-/node_modules
-
-# Arquivos de Build/Compilação
-/dist
-.vite
-
-# Variáveis de Ambiente e Chaves Secretas (CRÍTICO para segurança!)
-.env
-.env.local
-.env.*.local
-
-# Logs e Cache do VS Code/SO
-.DS_Store
+# Logs
+logs
+*.log
 npm-debug.log*
 yarn-debug.log*
-# Outros
-/build
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
