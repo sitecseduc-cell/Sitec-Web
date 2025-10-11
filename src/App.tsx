@@ -30,8 +30,8 @@ const Icon = ({ name, className }) => {
         barChart: <path d="M3 3v18h18" />,
         sparkles: <path d="m12 3-1.9 3.9-3.9 1.9 3.9 1.9 1.9 3.9 1.9-3.9 3.9-1.9-3.9-1.9L12 3zM5 11l-1 2-2 1 2 1 1 2 1-2 2-1-2-1-1-2zm14 0-1 2-2 1 2 1 1 2 1-2 2-1-2-1-1-2z"/>,
         briefcase: <><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></>,
-        menu: <><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></>,
-        x: <><path d="M18 6 6 18"/><path d="m6 6 12 12"/></>,
+        menu: <><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></>,
+        x: <><path d="M18 6 6 18"/><path d="m6 6 12 12"/></>,
     };
 
     return (
@@ -368,18 +368,18 @@ const Sidebar = ({ user, onLogout, activeTab, onTabChange, isMobileSidebarOpen, 
         'Visitante': [ { icon: 'home', label: 'Início' }, { icon: 'pieChart', label: 'Dados Públicos' }, { icon: 'briefcase', label: 'Ferramentas' } ],
     };
 
-    const handleTabChange = (label) => {
-        onTabChange(label);
-        setIsMobileSidebarOpen(false); // Fecha o menu mobile ao selecionar um item
-    }
+    const handleTabChange = (label) => {
+        onTabChange(label);
+        setIsMobileSidebarOpen(false); // Fecha o menu mobile ao selecionar um item
+    }
 
-    const SidebarContent = () => (
-        <div className="flex flex-col h-full">
-             <div className="flex items-center justify-between h-20 border-b border-gray-200 dark:border-gray-700 px-4">
+    const SidebarContent = () => (
+        <div className="flex flex-col h-full">
+             <div className="flex items-center justify-between h-20 border-b border-gray-200 dark:border-gray-700 px-4">
                <div className="flex items-center">
-                    <Icon name="logo" className="h-8 w-8 text-blue-600" />
-                   <h1 className="text-xl font-bold ml-2 text-gray-800 dark:text-white">SITEC</h1>
-                </div>
+                    <Icon name="logo" className="h-8 w-8 text-blue-600" />
+                   <h1 className="text-xl font-bold ml-2 text-gray-800 dark:text-white">SITEC</h1>
+                </div>
             </div>
             <nav className="flex-1 px-4 py-6 space-y-2">
                 {(navItems[user.role] || []).map(item => {
@@ -420,38 +420,38 @@ const Sidebar = ({ user, onLogout, activeTab, onTabChange, isMobileSidebarOpen, 
                     Sair
                 </button>
             </div>
-        </div>
-    );
+        </div>
+    );
 
 
     return (
-        <>
-            {/* Desktop Sidebar */}
-            <aside className="w-64 bg-white dark:bg-gray-800 flex-col border-r border-gray-200 dark:border-gray-700 transition-colors duration-300 hidden md:flex">
-                <SidebarContent />
-            </aside>
+        <>
+            {/* Desktop Sidebar */}
+            <aside className="w-64 bg-white dark:bg-gray-800 flex-col border-r border-gray-200 dark:border-gray-700 transition-colors duration-300 hidden md:flex">
+                <SidebarContent />
+            </aside>
 
-            {/* Mobile Sidebar */}
-            <div className={`fixed inset-0 z-40 md:hidden transition-opacity ${isMobileSidebarOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} role="dialog" aria-modal="true">
-                {/* Overlay */}
-                <div className="fixed inset-0 bg-black bg-opacity-60" onClick={() => setIsMobileSidebarOpen(false)} aria-hidden="true"></div>
+            {/* Mobile Sidebar */}
+            <div className={`fixed inset-0 z-40 md:hidden transition-opacity ${isMobileSidebarOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} role="dialog" aria-modal="true">
+                {/* Overlay */}
+                <div className="fixed inset-0 bg-black bg-opacity-60" onClick={() => setIsMobileSidebarOpen(false)} aria-hidden="true"></div>
 
-                {/* Sidebar Panel */}
-                <div className={`relative flex-1 flex flex-col max-w-xs w-full bg-white dark:bg-gray-800 transform transition-transform ease-in-out duration-300 ${isMobileSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-                    <div className="absolute top-0 right-0 -mr-12 pt-2">
-                        <button
-                            type="button"
-                            className="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-                            onClick={() => setIsMobileSidebarOpen(false)}
-                        >
-                            <span className="sr-only">Fechar sidebar</span>
-                            <Icon name="x" className="h-6 w-6 text-white" />
-                        </button>
-                    </div>
-                    <SidebarContent />
-                </div>
-            </div>
-        </>
+                {/* Sidebar Panel */}
+                <div className={`relative flex-1 flex flex-col max-w-xs w-full bg-white dark:bg-gray-800 transform transition-transform ease-in-out duration-300 ${isMobileSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+                    <div className="absolute top-0 right-0 -mr-12 pt-2">
+                        <button
+                            type="button"
+                            className="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                            onClick={() => setIsMobileSidebarOpen(false)}
+                        >
+                            <span className="sr-only">Fechar sidebar</span>
+                            <Icon name="x" className="h-6 w-6 text-white" />
+                        </button>
+                    </div>
+                    <SidebarContent />
+                </div>
+            </div>
+        </>
     );
 };
 
@@ -469,18 +469,18 @@ const Header = ({ user, darkMode, toggleDarkMode, searchQuery, setSearchQuery, s
     return (
         <header className="flex-1 flex items-center justify-between h-20 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-4 sm:px-8 transition-colors duration-300">
            <div className="flex items-center">
-                <button
-                    onClick={() => setIsMobileSidebarOpen(true)}
-                    className="md:hidden mr-4 p-2 -ml-2 rounded-md text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700"
-                    aria-label="Abrir menu"
-                >
-                    <Icon name="menu" className="h-6 w-6" />
-                </button>
+                <button
+                    onClick={() => setIsMobileSidebarOpen(true)}
+                    className="md:hidden mr-4 p-2 -ml-2 rounded-md text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700"
+                    aria-label="Abrir menu"
+                >
+                    <Icon name="menu" className="h-6 w-6" />
+                </button>
                <div>
-                   <h2 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white">Olá, {user.username}!</h2>
-                   <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">{formattedDate}</p>
+                   <h2 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white">Olá, {user.username}!</h2>
+                   <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">{formattedDate}</p>
                </div>
-            </div>
+            </div>
 
             <div className="flex items-center space-x-2 sm:space-x-6">
                 <div className="hidden md:block relative w-64">
@@ -514,18 +514,18 @@ const Header = ({ user, darkMode, toggleDarkMode, searchQuery, setSearchQuery, s
 
 const DashboardLayout = ({ user, onLogout, darkMode, toggleDarkMode, children, activeTab, setActiveTab }) => {
     const [searchQuery, setSearchQuery] = useState('');
-    const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
+    const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
 
     return (
         <div className={`flex h-screen bg-gray-100 dark:bg-gray-900 font-sans`}>
             <Sidebar
-                user={user}
-                onLogout={onLogout}
-                activeTab={activeTab}
-                onTabChange={setActiveTab}
-                isMobileSidebarOpen={isMobileSidebarOpen}
-                setIsMobileSidebarOpen={setIsMobileSidebarOpen}
-            />
+                user={user}
+                onLogout={onLogout}
+                activeTab={activeTab}
+                onTabChange={setActiveTab}
+                isMobileSidebarOpen={isMobileSidebarOpen}
+                setIsMobileSidebarOpen={setIsMobileSidebarOpen}
+            />
             <div className="flex-1 flex flex-col overflow-hidden">
                 <Header
                     user={user}
@@ -533,7 +533,7 @@ const DashboardLayout = ({ user, onLogout, darkMode, toggleDarkMode, children, a
                     toggleDarkMode={toggleDarkMode}
                     searchQuery={searchQuery}
                     setSearchQuery={setSearchQuery}
-                    setIsMobileSidebarOpen={setIsMobileSidebarOpen}
+                    setIsMobileSidebarOpen={setIsMobileSidebarOpen}
                 />
                 <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 dark:bg-gray-900 p-4 sm:p-8 transition-colors duration-300">
                     <div id="printable-area">
@@ -632,11 +632,11 @@ const FerramentasComponent = () => {
                 <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">{tool.name}</h3>
                 <p className="text-gray-500 dark:text-gray-400 text-sm mb-4 flex-grow">{tool.description}</p>
                 <a
-                    href={tool.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`w-full block mt-auto px-4 py-2 text-sm font-medium text-white ${classes.button} rounded-lg transition`}
-                >
+                    href={tool.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`w-full block mt-auto px-4 py-2 text-sm font-medium text-white ${classes.button} rounded-lg transition`}
+                >
                     Acessar Ferramenta
                 </a>
             </div>
@@ -899,7 +899,7 @@ const DashboardGestorComponent = ({ searchQuery = '', activeTab, user, darkMode,
         setSummaryError('');
         setSummary('');
 
-        const apiKey = "";
+        const apiKey = ""; // Insira sua chave API Gemini aqui
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
 
         const systemPrompt = "Você é um consultor especialista em gestão pública. Sua tarefa é analisar uma lista de processos e fornecer um resumo conciso e acionável. Identifique o status geral, aponte possíveis gargalos e sugira uma ação prioritária para o gestor. Seja direto e profissional.";
@@ -958,7 +958,7 @@ const DashboardGestorComponent = ({ searchQuery = '', activeTab, user, darkMode,
                             <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Visão Geral do Gestor</h2>
                              <button
                                 onClick={handleGenerateSummary}
-                                disabled={isSummaryLoading}
+                                disabled={apiKey === "" || isSummaryLoading}
                                 className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-purple-600 rounded-lg hover:bg-purple-700 transition disabled:bg-purple-400 disabled:cursor-not-allowed shadow-lg hover:shadow-purple-500/50"
                             >
                                 <Icon name="sparkles" className="w-4 h-4"/>
@@ -966,6 +966,12 @@ const DashboardGestorComponent = ({ searchQuery = '', activeTab, user, darkMode,
                             </button>
                         </div>
 
+                        {apiKey === "" && (
+                            <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-md dark:bg-red-900/20 dark:text-red-300">
+                                <p className="font-semibold">AVISO: Chave da API Gemini não configurada.</p>
+                                <p className="text-sm">A funcionalidade "Resumo Inteligente" está desabilitada.</p>
+                            </div>
+                        )}
                         {isSummaryLoading && (
                             <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 flex items-center justify-center min-h-[150px]">
                                 <div className="flex items-center space-x-3">
@@ -977,7 +983,7 @@ const DashboardGestorComponent = ({ searchQuery = '', activeTab, user, darkMode,
                                 </div>
                             </div>
                         )}
-                        {summaryError && <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-md"><p>{summaryError}</p></div>}
+                        {summaryError && <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-md dark:bg-red-900/20 dark:text-red-300"><p>{summaryError}</p></div>}
                         {summary && (
                             <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg border border-purple-200 dark:border-purple-700">
                                 <h3 className="text-lg font-bold text-gray-800 dark:text-white mb-3 flex items-center">
@@ -1048,24 +1054,32 @@ const DashboardVisitanteComponent = ({ searchQuery = '', activeTab }) => {
     const filteredProcesses = useFilteredProcesses(searchQuery);
 
     const renderPieChart = (data) => {
+        // Simulação de Recharts, assume que Recharts está disponível globalmente ou não é usado.
+        // Em um ambiente real, você faria `import { ResponsiveContainer, PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';`
         if (typeof Recharts === 'undefined') {
             return (
-               <div className="flex items-center justify-center h-[250px]">
-                   <p className="text-yellow-600 dark:text-yellow-400">Carregando biblioteca de gráficos...</p>
+               <div className="flex items-center justify-center h-[250px] bg-gray-50 dark:bg-gray-700/50 rounded-lg">
+                   <p className="text-gray-500 dark:text-gray-400 font-semibold">Gráfico indisponível (Dependência Recharts ausente).</p>
                </div>
             );
         }
-        const { ResponsiveContainer, PieChart, Pie, Cell, Tooltip, Legend } = Recharts;
+        // Se Recharts estivesse importado, o código continuaria assim:
+        // const { ResponsiveContainer, PieChart, Pie, Cell, Tooltip, Legend } = Recharts;
+        // return (
+        //     <ResponsiveContainer width="100%" height={250}>
+        //         <PieChart>
+        //             <Pie data={data} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={80} label>
+        //                 {data.map((entry, index) => <Cell key={`cell-${index}`} fill={entry.color} />)}
+        //             </Pie>
+        //             <Tooltip />
+        //             <Legend />
+        //         </PieChart>
+        //     </ResponsiveContainer>
+        // );
         return (
-            <ResponsiveContainer width="100%" height={250}>
-                <PieChart>
-                    <Pie data={data} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={80} label>
-                        {data.map((entry, index) => <Cell key={`cell-${index}`} fill={entry.color} />)}
-                    </Pie>
-                    <Tooltip />
-                    <Legend />
-                </PieChart>
-            </ResponsiveContainer>
+           <div className="flex items-center justify-center h-[250px] bg-gray-50 dark:bg-gray-700/50 rounded-lg">
+               <p className="text-gray-500 dark:text-gray-400 font-semibold">Gráfico indisponível (Dependência Recharts ausente).</p>
+           </div>
         );
     };
 
@@ -1169,56 +1183,8 @@ const App = () => {
     }
 
     return (
-        <>
-            <style>{`
-                @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-                body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-
-                @keyframes fade-in {
-                    from { opacity: 0; transform: translateY(10px); }
-                    to { opacity: 1; transform: translateY(0); }
-                }
-                .animate-fade-in {
-                    animation: fade-in 0.5s ease-out forwards;
-                }
-
-                @media print {
-                    body * { visibility: hidden; }
-                    #printable-area, #printable-area * { visibility: visible; }
-                    #printable-area { position: absolute; left: 0; top: 0; width: 100%; padding: 20px; }
-                    button, aside, header { display: none !important; }
-                    .dark #printable-area { color: black; background: white; }
-                    .dark .bg-gray-800 { background-color: white !important; }
-                    .dark .text-white { color: black !important; }
-                    .dark .border-gray-700 { border-color: #e5e7eb !important; }
-                }
-            `}</style>
-
-            <script src="https://cdn.tailwindcss.com"></script>
-            <script src="https://unpkg.com/recharts/dist/recharts.min.js"></script>
-            <script dangerouslySetInnerHTML={{__html: `
-                tailwind.config = {
-                    darkMode: 'class',
-                    theme: {
-                        extend: {
-                            fontFamily: {
-                                sans: ['Inter', 'sans-serif'],
-                            },
-                           colors: {
-                             // Adicionando cores para garantir que o Tailwind as reconheça
-                             orange: { 100: '#ffedd5', 400: '#fb923c', 600: '#f97316', 700: '#ea580c', 900: '#7c2d12' },
-                             red: { 100: '#fee2e2', 400: '#f87171', 600: '#ef4444', 700: '#dc2626', 900: '#7f1d1d' },
-                             green: { 100: '#dcfce7', 400: '#4ade80', 600: '#22c55e', 700: '#16a34a', 900: '#14532d' },
-                           }
-                        }
-                    }
-                }
-            `}} />
-
-            {renderView()}
-        </>
+        <>{renderView()}</>
     );
-};
+}; // <-- FIM DO COMPONENTE
 
-export default App;
-
+export default App; // <-- CORREÇÃO: A exportação é feita fora da função.
